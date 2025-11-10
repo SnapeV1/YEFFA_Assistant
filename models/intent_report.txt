@@ -1,0 +1,58 @@
+Saved intent model to: models\intent.joblib
+Hold-out metrics:
+  predict: f1_micro=0.8358 f1_macro=0.6091 precision_micro=0.9032 recall_micro=0.7778
+  proba>=0.5: f1_micro=0.8358 f1_macro=0.6091 precision_micro=0.9032 recall_micro=0.7778
+  proba>=opt: f1_micro=0.7200 f1_macro=0.7763 precision_micro=0.5625 recall_micro=1.0000
+Sample tuned thresholds: about:0.40, account:0.35, acknowledgement:0.20, assistant:0.55, auth:0.45, contact:0.50, courses:0.35, email:0.35, filter:0.40, general:0.55
+
+Per-class classification report (predict):
+                 precision    recall  f1-score   support
+
+          about       1.00      1.00      1.00         2
+        account       1.00      0.67      0.80         3
+acknowledgement       0.00      0.00      0.00         0
+      assistant       0.50      1.00      0.67         1
+           auth       1.00      1.00      1.00         1
+        contact       1.00      1.00      1.00         2
+        courses       1.00      1.00      1.00         6
+          email       0.00      0.00      0.00         1
+         filter       1.00      1.00      1.00         1
+        general       0.67      1.00      0.80         2
+       greeting       1.00      0.80      0.89         5
+      introduce       0.50      1.00      0.67         1
+     navigation       0.00      0.00      0.00         0
+  notifications       0.00      0.00      0.00         0
+        profile       0.00      0.00      0.00         0
+       settings       1.00      1.00      1.00         1
+        support       1.00      0.60      0.75         5
+           tech       0.00      0.00      0.00         3
+          yeffa       1.00      1.00      1.00         2
+
+      micro avg       0.90      0.78      0.84        36
+      macro avg       0.61      0.64      0.61        36
+   weighted avg       0.84      0.78      0.79        36
+    samples avg       0.77      0.75      0.75        36
+
+Top features per class (coef):
+  about: about(1.85), yeffa(1.81), introduce(1.38), assistant(1.33), about yeffa(1.11), introduce assistant(0.84), you(0.79), what(0.79)
+  account: account(1.83), profile(1.79), account profile(1.00), my(0.90), change my(0.84), admin(0.80), change(0.77), my profile(0.70)
+  acknowledgement: acknowledgement(3.65), yes acknowledgement(0.93), haha acknowledgement(0.93), haha(0.93), no(0.93), ok acknowledgement(0.93), ok(0.93), yes(0.93)
+  assistant: introduce(1.84), assistant(1.82), about(1.52), introduce assistant(1.10), yeffa(0.95), assistant yeffa(0.93), about introduce(0.93), yourself(0.81)
+  auth: auth(2.23), out(0.96), my password(0.85), password(0.85), sign(0.84), in(0.68), password auth(0.67), yeffa auth(0.64)
+  contact: support(2.56), contact(2.22), contact support(1.68), general contact(1.50), support general(1.05), general(0.72), contact us(0.42), us general(0.42)
+  courses: courses(2.68), course(1.30), filter(0.89), courses by(0.80), by(0.80), course courses(0.71), courses filter(0.55), how(0.51)
+  email: email(2.95), notifications(1.40), my email(0.81), notifications notifications(0.74), email settings(0.66), notifications email(0.65), settings(0.65), email address(0.47)
+  filter: filter(2.59), courses(1.78), courses filter(1.50), can filter(0.81), filter courses(0.80), by(0.62), courses by(0.62), the courses(0.52)
+  general: general(2.55), support(1.18), contact(0.89), contact support(0.69), general contact(0.60), support general(0.43), premium(0.40), thanks(0.39)
+  greeting: greeting(3.42), help greeting(0.94), hi greeting(0.91), hi(0.91), sup greeting(0.91), sup(0.91), wave greeting(0.91), wave(0.91)
+  introduce: introduce(2.07), assistant(1.60), about(1.34), introduce assistant(1.25), yeffa(1.17), about introduce(1.06), assistant yeffa(1.06), yourself(0.90)
+  navigation: navigation(2.09), to the(1.00), to(0.98), find(0.97), view(0.87), the(0.86), where(0.80), settings(0.72)
+  notifications: notifications(3.14), notifications notifications(1.44), email(0.85), my notifications(0.75), notifications email(0.63), single notification(0.51), mark single(0.51), notification(0.51)
+  profile: profile(2.69), account profile(1.52), account(1.15), my profile(1.03), my(0.86), display(0.71), display name(0.71), name(0.64)
+  settings: settings(2.49), email(1.17), notifications(0.77), update my(0.75), update(0.75), email settings(0.67), do change(0.62), where(0.57)
+  support: support(2.61), contact(1.93), contact support(1.46), general contact(1.30), support general(0.91), general(0.80), feature general(0.53), feature(0.53)
+  tech: tech(1.70), in(1.35), enable(1.07), google(1.02), for(0.85), to enable(0.74), need to(0.74), cookies for(0.74)
+  yeffa: yeffa(2.05), about(1.74), introduce(1.49), about yeffa(1.24), assistant(1.12), introduce assistant(0.92), you(0.86), about introduce(0.80)
+
+Label summary:
+{"num_samples": 107, "num_unique_labels": 19, "avg_labels_per_sample": 1.7009345794392523, "top_labels": [["general", 23], ["courses", 16], ["about", 13], ["auth", 12], ["account", 12], ["support", 12], ["yeffa", 12], ["greeting", 10], ["assistant", 9], ["settings", 8], ["contact", 8], ["introduce", 8], ["email", 7], ["notifications", 6], ["tech", 6]]}
