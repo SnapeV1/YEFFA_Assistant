@@ -93,4 +93,4 @@ def get_respond(message: str, include_debug: bool = False) -> Dict[str, Any]:
 if __name__ == "__main__":
     # Allow running via: python api.py
     import uvicorn
-    uvicorn.run("api:app", host="127.0.0.1", port=5001, reload=True)
+    uvicorn.run("api:app", host="0.0.0.0", port=5001, reload=True)
