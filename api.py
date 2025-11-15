@@ -25,13 +25,15 @@ app = FastAPI(title="YEFFA FAQ Matcher", version="1.0.0")
 origins = [
     "http://localhost:4200",
     "http://127.0.0.1:4200",
-    "http://192.168.182.128:4200",
-    "http://192.168.182.128",
+    "http://192.168.182.128:4200",   # VM serving backend
+    "http://192.168.137.230:4200",   # Host PC running Angular (IMPORTANT!)
+    "http://192.168.182.1:4200",     # Host’s VMnet8 interface (optional but safe)
 ]
+
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
