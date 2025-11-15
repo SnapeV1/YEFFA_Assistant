@@ -15,18 +15,20 @@ try:
     from ai_matcher import respond, load_faq
     logger.info("Using matcher implementation: ai_matcher")
 except Exception:
-    # Fallback to previous matcher if AI module import fails
     from matcher import respond, load_faq
     logger.info("Using matcher implementation: matcher (fallback)")
 
 
 app = FastAPI(title="YEFFA FAQ Matcher", version="1.0.0")
 
-# CORS: allow local frontend (Angular at :4200) to call this API
+
 origins = [
     "http://localhost:4200",
     "http://127.0.0.1:4200",
+    "http://192.168.182.128:4200",
+    "http://192.168.182.128",
 ]
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
@@ -34,6 +36,15 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+@app.options("/respond")
+def respond_options():
+    """
+    Explicitly handle OPTIONS so FastAPI/Uvicorn do not return 405.
+    This enables proper CORS preflight for Angular.
+    """
+    return {"status": "ok"}
 
 
 class Query(BaseModel):
@@ -49,9 +60,11 @@ def health() -> Dict[str, str]:
 @app.post("/respond")
 def post_respond(q: Query) -> Dict[str, Any]:
     logger.info("POST /respond include_debug=%s", q.include_debug)
-    faq_path = os.path.join(os.path.dirname(__file__), 'faq.json')
+    faq_path = os.path.join(os.path.dirname(__file__), "faq.json")
     logger.info("Loading FAQ file %s", faq_path)
+
     res = respond(q.message, load_faq(faq_path))
+
     payload = {
         "id": res.get("id"),
         "answer": res.get("answer"),
@@ -60,21 +73,29 @@ def post_respond(q: Query) -> Dict[str, Any]:
         "intent": res.get("intent"),
         "matchedTags": res.get("matchedTags", []),
     }
+
     if q.include_debug:
         payload["debug"] = res.get("debug")
+
     logger.info(
         "Matched id=%s intent=%s confidence=%s score=%s",
-        payload.get("id"), payload.get("intent"), payload.get("confidence"), payload.get("confidenceScore")
+        payload.get("id"),
+        payload.get("intent"),
+        payload.get("confidence"),
+        payload.get("confidenceScore"),
     )
+
     return payload
 
 
 @app.get("/respond")
 def get_respond(message: str, include_debug: bool = False) -> Dict[str, Any]:
     logger.info("GET /respond include_debug=%s", include_debug)
-    faq_path = os.path.join(os.path.dirname(__file__), 'faq.json')
+    faq_path = os.path.join(os.path.dirname(__file__), "faq.json")
     logger.info("Loading FAQ file %s", faq_path)
+
     res = respond(message, load_faq(faq_path))
+
     payload = {
         "id": res.get("id"),
         "answer": res.get("answer"),
@@ -83,14 +104,22 @@ def get_respond(message: str, include_debug: bool = False) -> Dict[str, Any]:
         "intent": res.get("intent"),
         "matchedTags": res.get("matchedTags", []),
     }
+
     if include_debug:
         payload["debug"] = res.get("debug")
+
     logger.info(
         "Matched id=%s intent=%s confidence=%s score=%s",
-        payload.get("id"), payload.get("intent"), payload.get("confidence"), payload.get("confidenceScore")
+        payload.get("id"),
+        payload.get("intent"),
+        payload.get("confidence"),
+        payload.get("confidenceScore"),
     )
+
     return payload
+
+
 if __name__ == "__main__":
-    # Allow running via: python api.py
     import uvicorn
     uvicorn.run("api:app", host="0.0.0.0", port=5001, reload=True)
+
