@@ -1,6 +1,7 @@
 import logging
 import os
-from fastapi import FastAPI
+import time
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import Optional, Any, Dict
@@ -21,15 +22,28 @@ except Exception:
 
 app = FastAPI(title="YEFFA FAQ Matcher", version="1.0.0")
 
-
-origins = [
-    "http://localhost:4200",
-    "http://127.0.0.1:4200",
-    "http://192.168.182.128:4200",   # VM serving backend
-    "http://192.168.137.230:4200",   # Host PC running Angular (IMPORTANT!)
-    "http://192.168.182.1:4200",     # Host’s VMnet8 interface (optional but safe)
-]
-
+@app.middleware("http")
+async def log_requests(request: Request, call_next):
+    """Log every request to help debug host-to-VM connectivity issues."""
+    start = time.perf_counter()
+    client_host = request.client.host if request.client else "unknown"
+    logger.info(
+        "Incoming %s %s from %s query=%s",
+        request.method,
+        request.url.path,
+        client_host,
+        request.url.query or "-",
+    )
+    response = await call_next(request)
+    duration_ms = (time.perf_counter() - start) * 1000
+    logger.info(
+        "Completed %s %s status=%s duration=%.2fms",
+        request.method,
+        request.url.path,
+        response.status_code,
+        duration_ms,
+    )
+    return response
 
 app.add_middleware(
     CORSMiddleware,
