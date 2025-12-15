@@ -115,7 +115,7 @@
     "id": "courses-005",
     "category": "Courses",
     "question": "How do I enroll in a course?",
-    "answer": "Click Enroll on a course card to join it.",
+    "answer": "Open the Courses page, pick a course, and click Enroll to join. If you don't see the button, make sure you're logged in.",
     "tags": [
       "courses"
     ]
@@ -402,7 +402,7 @@
     "id": "general-041",
     "category": "General",
     "question": "How do I report a bug or request a feature?",
-    "answer": "and include steps to reproduce, screenshots, and links where possible.",
+    "answer": "Use the contact form at /contact to report bugs or request features. Include steps to reproduce, screenshots, links, browser/device, and your account email so we can investigate quickly.",
     "tags": [
       "general",
       "support"
@@ -687,7 +687,7 @@
     ]
   },
   {
-    "id": "general-044",
+    "id": "general-048",
     "category": "General",
     "question": "Where can I find help or documentation?",
     "answer": "Check the Help or FAQ section in the app. For anything else,",
@@ -696,7 +696,7 @@
     ]
   },
   {
-    "id": "general-045",
+    "id": "general-049",
     "category": "General",
     "question": "How do I change the app language?",
     "answer": "If multiple languages are supported, use the Language setting in your profile or the site footer.",
@@ -1062,7 +1062,7 @@
     ]
   },
   {
-    "id": "tech-005",
+    "id": "tech-007",
     "category": "Technical",
     "question": "I got an error",
     "answer": "Refresh the page and try again. If it keeps happening, grab a screenshot plus the steps that caused it and contact support.",
@@ -1095,7 +1095,7 @@
     ]
   },
   {
-    "id": "chat-024",
+    "id": "chat-040",
     "category": "Small Talk",
     "question": "azfazfzaf",
     "answer": "I didn't catch that. Tell me what you want to do in YEFFA (login, courses, notifications), and I'll help.",
@@ -1172,7 +1172,7 @@
     ]
   },
   {
-    "id": "courses-010",
+    "id": "courses-016",
     "category": "Courses",
     "question": "How do courses work from start to certificate?",
     "answer": "1) Browse or search for a course. 2) Open it and click Enroll. 3) Complete the lessons and requirements. 4) When finished, download your certificate from the course page or your profile (if certificates are offered).",
@@ -1184,7 +1184,7 @@
     ]
   },
   {
-    "id": "courses-011",
+    "id": "courses-017",
     "category": "Courses",
     "question": "How do I enroll in a course?",
     "answer": "Open the course page, click Enroll, and confirm. If you don't see an enroll button, make sure you're logged in.",
@@ -1195,7 +1195,7 @@
     ]
   },
   {
-    "id": "courses-012",
+    "id": "courses-018",
     "category": "Courses",
     "question": "What happens after I finish a course?",
     "answer": "After you complete all lessons and requirements, the course is marked complete. If certificates are available, you can download one from the course page or your profile.",
@@ -1203,6 +1203,44 @@
       "courses",
       "certificate",
       "completion"
+    ]
+  },
+  {
+    "id": "courses-019",
+    "category": "Courses",
+    "question": "courses",
+    "answer": "Open the Courses page from the top navigation to browse, filter, or search. Open any course to see details and click Enroll to join.",
+    "tags": [
+      "courses",
+      "navigation",
+      "enroll",
+      "search"
+    ]
+  },
+  {
+    "id": "courses-020",
+    "category": "Courses",
+    "question": "Tell me more about courses",
+    "answer": "Courses include lessons and requirements. Browse the Courses page, preview details, enroll when you're ready, track your progress, and download a certificate after completion if available.",
+    "tags": [
+      "courses",
+      "enroll",
+      "certificate",
+      "navigation",
+      "completion"
+    ]
+  },
+  {
+    "id": "general-047",
+    "category": "General",
+    "question": "How do I report a bug or contact support?",
+    "answer": "Use the /contact form to report issues or request features. Include steps to reproduce, screenshots, links, browser/device, and your account email so we can help quickly.",
+    "tags": [
+      "general",
+      "support",
+      "contact",
+      "bug",
+      "feature"
     ]
   },
   {
@@ -1221,7 +1259,7 @@
     "id": "chat-032",
     "category": "Small Talk",
     "question": "How do I use this chatbot?",
-    "answer": "Ask me what you want to do in YEFFA—login, find a course, enroll, manage notifications, or learn about the platform—and I'll guide you.",
+    "answer": "Ask me what you want to do in YEFFA - login, find a course, enroll, manage notifications, or learn about the platform - and I'll guide you.",
     "tags": [
       "about",
       "assistant",
@@ -1294,6 +1332,18 @@
       "support",
       "contact",
       "help"
+    ]
+  },
+  {
+    "id": "chat-039",
+    "category": "Small Talk",
+    "question": "Hello! I'm Yeffa's agricultural assistant. How can I help you learn about farming today?",
+    "answer": "Hi! I can help you explore courses, enroll, and find answers about YEFFA and farming topics. What would you like to learn?",
+    "tags": [
+      "greeting",
+      "about",
+      "assistant",
+      "courses"
     ]
   }
 ]
