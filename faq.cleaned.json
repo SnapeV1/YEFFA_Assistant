@@ -1036,5 +1036,139 @@
       "account",
       "profile"
     ]
+  },
+  {
+    "id": "billing-003",
+    "category": "Billing",
+    "question": "What's the refund policy for premium plans?",
+    "answer": "Refunds for premium plans depend on the provider's policy. If you were charged in error or need a refund, contact support with your order details and we'll review your case.",
+    "tags": [
+      "billing",
+      "refund",
+      "premium",
+      "subscription",
+      "payment"
+    ]
+  },
+  {
+    "id": "account-014",
+    "category": "Account",
+    "question": "edit picture",
+    "answer": "Open Profile settings, choose Edit or Change Photo, upload a new picture, then save.",
+    "tags": [
+      "account",
+      "profile",
+      "profile-picture"
+    ]
+  },
+  {
+    "id": "tech-005",
+    "category": "Technical",
+    "question": "I got an error",
+    "answer": "Refresh the page and try again. If it keeps happening, grab a screenshot plus the steps that caused it and contact support.",
+    "tags": [
+      "tech",
+      "support",
+      "error"
+    ]
+  },
+  {
+    "id": "general-044",
+    "category": "General",
+    "question": "certificate",
+    "answer": "If certificates are available, finish the course requirements, then download the certificate from the course page or your profile.",
+    "tags": [
+      "certificate",
+      "certificates",
+      "courses"
+    ]
+  },
+  {
+    "id": "general-045",
+    "category": "General",
+    "question": "how to get a certificat",
+    "answer": "Complete the course requirements, then download your certificate from the course page or your profile when certificates are offered.",
+    "tags": [
+      "certificate",
+      "certificates",
+      "courses"
+    ]
+  },
+  {
+    "id": "chat-024",
+    "category": "Small Talk",
+    "question": "azfazfzaf",
+    "answer": "I didn't catch that. Tell me what you want to do in YEFFA (login, courses, notifications), and I'll help.",
+    "tags": [
+      "off-topic",
+      "clarification",
+      "general"
+    ]
+  },
+  {
+    "id": "chat-025",
+    "category": "Small Talk",
+    "question": "azdaz",
+    "answer": "I'm not sure what you need. Let me know what you want to do in YEFFA and I'll guide you.",
+    "tags": [
+      "off-topic",
+      "clarification",
+      "general"
+    ]
+  },
+  {
+    "id": "chat-026",
+    "category": "Small Talk",
+    "question": "heaezohfp azuf",
+    "answer": "I didn't understand that. Please rephrase your question about YEFFA so I can help.",
+    "tags": [
+      "off-topic",
+      "clarification",
+      "general"
+    ]
+  },
+  {
+    "id": "chat-027",
+    "category": "Small Talk",
+    "question": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "answer": "Looks like random text. Ask me about YEFFA (login, courses, notifications) and I'll help out.",
+    "tags": [
+      "off-topic",
+      "clarification",
+      "general"
+    ]
+  },
+  {
+    "id": "chat-028",
+    "category": "Small Talk",
+    "question": "bla bla random words",
+    "answer": "If you have a question about YEFFA, share a few details (login, courses, notifications) and I'll help.",
+    "tags": [
+      "off-topic",
+      "clarification",
+      "general"
+    ]
+  },
+  {
+    "id": "chat-029",
+    "category": "Small Talk",
+    "question": "do you know the weather",
+    "answer": "I don't have live weather info, but I can help with YEFFA tasks like login, courses, or notifications.",
+    "tags": [
+      "off-topic",
+      "general"
+    ]
+  },
+  {
+    "id": "chat-030",
+    "category": "Small Talk",
+    "question": "what is yout name",
+    "answer": "I'm the YEFFA assistant. I help with login, courses, notifications, and questions about YEFFA.",
+    "tags": [
+      "about",
+      "introduce",
+      "assistant",
+      "name"
+    ]
   }
 ]
