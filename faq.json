@@ -1170,5 +1170,130 @@
       "assistant",
       "name"
     ]
+  },
+  {
+    "id": "courses-010",
+    "category": "Courses",
+    "question": "How do courses work from start to certificate?",
+    "answer": "1) Browse or search for a course. 2) Open it and click Enroll. 3) Complete the lessons and requirements. 4) When finished, download your certificate from the course page or your profile (if certificates are offered).",
+    "tags": [
+      "courses",
+      "enroll",
+      "certificate",
+      "navigation"
+    ]
+  },
+  {
+    "id": "courses-011",
+    "category": "Courses",
+    "question": "How do I enroll in a course?",
+    "answer": "Open the course page, click Enroll, and confirm. If you don't see an enroll button, make sure you're logged in.",
+    "tags": [
+      "courses",
+      "enroll",
+      "navigation"
+    ]
+  },
+  {
+    "id": "courses-012",
+    "category": "Courses",
+    "question": "What happens after I finish a course?",
+    "answer": "After you complete all lessons and requirements, the course is marked complete. If certificates are available, you can download one from the course page or your profile.",
+    "tags": [
+      "courses",
+      "certificate",
+      "completion"
+    ]
+  },
+  {
+    "id": "chat-031",
+    "category": "Small Talk",
+    "question": "What can you do?",
+    "answer": "I'm the YEFFA assistant. I can help you log in, find courses, enroll, check notifications, and answer questions about YEFFA.",
+    "tags": [
+      "about",
+      "introduce",
+      "assistant",
+      "capabilities"
+    ]
+  },
+  {
+    "id": "chat-032",
+    "category": "Small Talk",
+    "question": "How do I use this chatbot?",
+    "answer": "Ask me what you want to do in YEFFA—login, find a course, enroll, manage notifications, or learn about the platform—and I'll guide you.",
+    "tags": [
+      "about",
+      "assistant",
+      "help",
+      "general"
+    ]
+  },
+  {
+    "id": "chat-033",
+    "category": "Small Talk",
+    "question": "Are you human?",
+    "answer": "I'm an AI assistant for YEFFA. I can guide you through login, courses, and notifications, and connect you to support information.",
+    "tags": [
+      "about",
+      "assistant",
+      "general"
+    ]
+  },
+  {
+    "id": "chat-034",
+    "category": "Small Talk",
+    "question": "Can I talk to a human?",
+    "answer": "I can help with most YEFFA questions. If you need a human, use the contact/support option to reach the team.",
+    "tags": [
+      "support",
+      "contact",
+      "handoff",
+      "general"
+    ]
+  },
+  {
+    "id": "chat-035",
+    "category": "Small Talk",
+    "question": "Tell me a joke",
+    "answer": "Why did the scarecrow become an entrepreneur? He was outstanding in his field.",
+    "tags": [
+      "off-topic",
+      "joke",
+      "general"
+    ]
+  },
+  {
+    "id": "chat-036",
+    "category": "Small Talk",
+    "question": "Can you reset the conversation?",
+    "answer": "Just ask your question again or start a new message. I don't keep past chat history after your session ends.",
+    "tags": [
+      "general",
+      "reset",
+      "assistant"
+    ]
+  },
+  {
+    "id": "chat-037",
+    "category": "Small Talk",
+    "question": "Do you store my data?",
+    "answer": "I only use your messages to answer your question. For details on data handling, see the platform's privacy policy.",
+    "tags": [
+      "privacy",
+      "data",
+      "general"
+    ]
+  },
+  {
+    "id": "chat-038",
+    "category": "Small Talk",
+    "question": "How do I contact support?",
+    "answer": "Use the contact/support option to reach the team. Include your account email and a short description of the issue.",
+    "tags": [
+      "support",
+      "contact",
+      "help"
+    ]
   }
 ]

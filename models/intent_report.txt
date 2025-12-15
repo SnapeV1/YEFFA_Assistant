@@ -1,71 +1,80 @@
 Saved intent model to: models\intent.joblib
 Hold-out metrics:
-  predict: f1_micro=0.8936 f1_macro=0.6593 precision_micro=0.8936 recall_micro=0.8936
-  proba>=0.5: f1_micro=0.8936 f1_macro=0.6593 precision_micro=0.8936 recall_micro=0.8936
-  proba>=opt: f1_micro=0.9216 f1_macro=0.7266 precision_micro=0.8545 recall_micro=1.0000
-Sample tuned thresholds: about:0.40, account:0.40, acknowledgement:0.20, assistant:0.35, auth:0.45, billing:0.20, certificate:0.20, certificates:0.20, clarification:0.65, contact:0.40
+  predict: f1_micro=0.8627 f1_macro=0.4239 precision_micro=0.8980 recall_micro=0.8302
+  proba>=0.5: f1_micro=0.8627 f1_macro=0.4239 precision_micro=0.8980 recall_micro=0.8302
+  proba>=opt: f1_micro=0.7324 f1_macro=0.4811 precision_micro=0.5843 recall_micro=0.9811
+Sample tuned thresholds: about:0.35, account:0.40, acknowledgement:0.20, assistant:0.35, auth:0.50, billing:0.20, capabilities:0.20, certificate:0.20, certificates:0.20, clarification:0.35
 
 Per-class classification report (predict):
                  precision    recall  f1-score   support
 
-          about       1.00      1.00      1.00         3
-        account       1.00      0.67      0.80         3
-acknowledgement       1.00      1.00      1.00         2
-      assistant       1.00      1.00      1.00         3
-           auth       1.00      1.00      1.00         2
+          about       1.00      1.00      1.00         5
+        account       1.00      0.33      0.50         3
+acknowledgement       0.00      0.00      0.00         0
+      assistant       1.00      1.00      1.00         4
+           auth       1.00      1.00      1.00         1
         billing       0.00      0.00      0.00         0
-    certificate       1.00      1.00      1.00         1
-   certificates       1.00      1.00      1.00         1
-  clarification       0.50      1.00      0.67         1
+   capabilities       0.00      0.00      0.00         0
+    certificate       0.00      0.00      0.00         0
+   certificates       0.00      0.00      0.00         0
+  clarification       1.00      1.00      1.00         1
+     completion       0.00      0.00      0.00         0
         contact       1.00      1.00      1.00         1
-        courses       0.80      1.00      0.89         4
-          email       0.00      0.00      0.00         1
+        courses       0.83      1.00      0.91         5
+           data       0.00      0.00      0.00         0
+          email       0.50      1.00      0.67         1
+         enroll       0.00      0.00      0.00         1
           error       0.00      0.00      0.00         0
          filter       1.00      1.00      1.00         2
-        general       1.00      0.60      0.75         5
-       greeting       1.00      0.50      0.67         2
-      introduce       1.00      1.00      1.00         3
+        general       1.00      0.80      0.89         5
+       greeting       1.00      0.75      0.86         4
+        handoff       0.00      0.00      0.00         0
+           help       0.00      0.00      0.00         0
+      introduce       1.00      1.00      1.00         4
+           joke       0.00      0.00      0.00         1
            name       0.00      0.00      0.00         0
-     navigation       1.00      1.00      1.00         1
+     navigation       1.00      0.50      0.67         2
   notifications       1.00      1.00      1.00         1
-      off-topic       1.00      1.00      1.00         2
+      off-topic       1.00      0.50      0.67         2
         payment       0.00      0.00      0.00         0
         premium       0.00      0.00      0.00         0
-        profile       1.00      1.00      1.00         2
+        privacy       0.00      0.00      0.00         0
+        profile       1.00      1.00      1.00         1
 profile-picture       0.00      0.00      0.00         0
          refund       0.00      0.00      0.00         0
-       settings       0.50      1.00      0.67         1
+          reset       0.00      0.00      0.00         0
+       settings       0.00      0.00      0.00         0
    subscription       0.00      0.00      0.00         0
-        support       1.00      1.00      1.00         2
+        support       1.00      0.67      0.80         3
            tech       1.00      1.00      1.00         1
-          yeffa       1.00      1.00      1.00         3
+          yeffa       1.00      1.00      1.00         5
 
-      micro avg       0.89      0.89      0.89        47
-      macro avg       0.67      0.67      0.66        47
-   weighted avg       0.94      0.89      0.90        47
-    samples avg       0.82      0.83      0.81        47
+      micro avg       0.90      0.83      0.86        53
+      macro avg       0.46      0.41      0.42        53
+   weighted avg       0.94      0.83      0.86        53
+    samples avg       0.83      0.79      0.79        53
 
 Top features per class (coef):
-  about: about(2.06), yeffa(1.94), about yeffa(1.46), assistant(1.38), introduce(1.35), introduce assistant(0.87), what(0.80), name(0.74)
-  account: account(2.33), profile(1.54), account profile(0.89), admin(0.85), settings(0.84), my(0.79), picture(0.74), account settings(0.69)
-  acknowledgement: acknowledgement(3.87), ok(1.30), haha(1.30), haha acknowledgement(1.30), ok acknowledgement(1.30), enable third(-0.01), for google(-0.01), google tech(-0.01)
-  assistant: assistant(2.03), introduce(1.99), about(1.40), introduce assistant(1.23), name(1.03), about introduce(0.98), who(0.84), name about(0.82)
-  auth: auth(2.45), password(0.94), my password(0.94), sign(0.88), yeffa auth(0.75), password auth(0.72), in(0.65), out(0.65)
-  billing: refund(1.73), premium(1.59), billing refund(0.99), billing(0.99), refund premium(0.99), payment(0.99), plans billing(0.99), what the(0.99)
-  certificate: certificat certificate(1.38), to get(1.38), certificates(1.38), certificate certificates(1.38), certificates courses(1.38), certificat(1.38), how to(1.38), get certificat(1.38)
-  certificates: certificat certificate(1.38), to get(1.38), certificates(1.38), certificate certificates(1.38), certificates courses(1.38), certificat(1.38), how to(1.38), get certificat(1.38)
-  clarification: topic clarification(1.69), clarification general(1.69), clarification(1.69), topic(1.69), off topic(1.69), off(1.59), bla(0.95), general(0.69)
-  contact: support(2.61), contact(2.32), contact support(1.83), general contact(1.67), support general(1.01), general(0.82), support email(0.42), the support(0.42)
-  courses: courses(2.82), course(1.46), course courses(0.76), courses by(0.57), by(0.57), how(0.57), list(0.54), filter(0.49)
-  email: email(3.04), notifications(1.58), my email(0.87), notifications notifications(0.79), email settings(0.69), notifications email(0.69), settings(0.67), address account(0.51)
-  error: error(2.56), support error(1.44), error tech(1.44), tech support(1.24), got an(1.24), got(1.24), an error(1.24), an(1.07)
-  filter: filter(2.60), courses filter(1.58), courses(1.48), can filter(1.09), clear all(0.66), courses page(0.66), page courses(0.66), filters(0.66)
-  general: general(2.69), support(1.11), contact(0.99), contact support(0.79), general contact(0.70), off topic(0.55), clarification general(0.55), clarification(0.55)
-  greeting: greeting(3.62), good(1.03), help(1.00), sup greeting(0.72), sup(0.72), hey greeting(0.72), hello greeting(0.72), hi greeting(0.72)
-  introduce: introduce(2.26), assistant(1.82), introduce assistant(1.43), about(1.21), about introduce(1.17), yeffa(0.95), who(0.93), assistant yeffa(0.82)
-  name: name(2.26), yout(1.37), yout name(1.37), is yout(1.37), assistant name(1.37), name about(1.18), about introduce(1.03), introduce assistant(0.95)
-  navigation: navigation(2.25), to the(1.23), find(1.18), the(1.01), to(0.90), settings(0.89), where(0.88), settings navigation(0.74)
-  notifications: notifications(3.42), notifications notifications(1.71), email(1.01), my notifications(0.89), notifications email(0.75), do see(0.49), see my(0.49), clear my(0.48)
+  about: about(2.29), assistant(1.71), introduce(1.44), yeffa(1.43), about yeffa(1.18), about assistant(0.98), introduce assistant(0.97), about introduce(0.85)
+  account: account(2.38), profile(1.81), account profile(1.02), admin(0.93), settings(0.91), picture(0.85), account settings(0.78), my(0.74)
+  acknowledgement: acknowledgement(3.98), no(1.02), no acknowledgement(1.02), ok acknowledgement(1.02), ok(1.02), yes acknowledgement(1.02), yes(1.02), haha acknowledgement(1.02)
+  assistant: assistant(2.34), introduce(1.77), about(1.58), introduce assistant(1.20), about assistant(1.10), about introduce(1.02), reset(0.85), you(0.75)
+  auth: auth(2.56), yeffa auth(0.96), password(0.95), my password(0.95), in(0.91), sign(0.86), password auth(0.73), out(0.64)
+  billing: refund(1.78), premium(1.64), subscription payment(1.01), plans billing(1.01), what the(1.01), refund premium(1.01), billing refund(1.01), payment(1.01)
+  capabilities: capabilities(1.66), assistant capabilities(1.66), what can(1.41), do about(1.41), you do(1.41), can you(1.30), about introduce(1.19), introduce assistant(1.11)
+  certificate: certificate(2.76), courses(1.33), certificates courses(1.15), certificates(1.15), certificate certificates(1.15), what happens(0.70), courses certificate(0.70), certificate completion(0.70)
+  certificates: certificate(2.34), certificates(1.85), certificate certificates(1.85), certificates courses(1.85), certificate certificate(1.12), certificat certificate(0.90), certificat(0.90), to get(0.90)
+  clarification: clarification general(1.80), clarification(1.80), topic clarification(1.80), topic(1.68), off topic(1.68), off(1.59), bla(1.00), general(0.67)
+  completion: after finish(1.34), happens(1.34), happens after(1.34), courses certificate(1.34), certificate completion(1.34), finish(1.34), finish course(1.34), after(1.34)
+  contact: support(2.74), contact(2.50), contact support(1.67), general contact(1.38), support general(0.82), support contact(0.82), general(0.71), talk to(0.63)
+  courses: courses(2.88), course(1.55), certificate(1.07), course courses(0.88), courses by(0.57), by(0.57), list(0.54), certificates courses(0.52)
+  data: data(2.49), data privacy(1.25), data general(1.25), store my(1.25), store(1.25), privacy data(1.25), my data(1.25), you store(1.25)
+  email: email(2.91), notifications(1.67), auth email(1.00), notifications notifications(0.83), email settings(0.76), notifications email(0.72), settings(0.69), in to(0.65)
+  enroll: certificate(1.59), certificate navigation(1.10), certificate courses(1.10), courses enroll(1.10), to certificate(1.10), courses work(1.10), do courses(1.10), enroll certificate(1.10)
+  error: error(2.72), error tech(1.36), support error(1.36), got(1.36), got an(1.36), an error(1.36), tech support(1.22), an(1.14)
+  filter: filter(2.71), courses filter(1.65), courses(1.51), can filter(1.13), the courses(0.68), filters on(0.68), all filters(0.68), page courses(0.68)
+  general: general(2.67), support(0.96), contact(0.82), general contact(0.68), contact support(0.64), off topic(0.59), topic(0.59), off(0.52)
+  greeting: greeting(3.86), wave greeting(0.88), wave(0.88), sup greeting(0.88), hello(0.88), hey(0.88), sup(0.88), hey greeting(0.88)
 
 Label summary:
-{"num_samples": 119, "num_unique_labels": 31, "avg_labels_per_sample": 1.8487394957983194, "top_labels": [["general", 29], ["courses", 18], ["about", 14], ["account", 13], ["support", 13], ["auth", 12], ["yeffa", 12], ["greeting", 10], ["assistant", 10], ["introduce", 9], ["settings", 8], ["contact", 8], ["email", 7], ["tech", 7], ["notifications", 6]]}
+{"num_samples": 130, "num_unique_labels": 40, "avg_labels_per_sample": 1.976923076923077, "top_labels": [["general", 35], ["courses", 21], ["about", 17], ["support", 15], ["assistant", 14], ["account", 13], ["auth", 12], ["yeffa", 12], ["greeting", 10], ["contact", 10], ["introduce", 10], ["settings", 8], ["email", 7], ["navigation", 7], ["tech", 7]]}
