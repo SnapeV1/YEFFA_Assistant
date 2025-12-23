@@ -33,6 +33,15 @@ REQUEST_LATENCY = Histogram(
     "HTTP request latency",
     ["method", "path"],
 )
+INFERENCE_COUNT = Counter(
+    "yeffa_inference_total",
+    "Total FAQ inferences",
+    ["confidence"],
+)
+INFERENCE_LATENCY = Histogram(
+    "yeffa_inference_duration_seconds",
+    "FAQ inference latency",
+)
 
 
 @app.middleware("http")
@@ -95,43 +104,15 @@ def metrics() -> Response:
 
 
 @app.post("/respond")
-def post_respond(q: Query) -> Dict[str, Any]:
-    logger.info("POST /respond include_debug=%s", q.include_debug)
+def _run_inference(message: str, include_debug: bool) -> Dict[str, Any]:
     faq_path = os.path.join(os.path.dirname(__file__), "faq.json")
     logger.info("Loading FAQ file %s", faq_path)
 
-    res = respond(q.message, load_faq(faq_path))
-
-    payload = {
-        "id": res.get("id"),
-        "answer": res.get("answer"),
-        "confidence": res.get("confidence"),
-        "confidenceScore": res.get("confidenceScore"),
-        "intent": res.get("intent"),
-        "matchedTags": res.get("matchedTags", []),
-    }
-
-    if q.include_debug:
-        payload["debug"] = res.get("debug")
-
-    logger.info(
-        "Matched id=%s intent=%s confidence=%s score=%s",
-        payload.get("id"),
-        payload.get("intent"),
-        payload.get("confidence"),
-        payload.get("confidenceScore"),
-    )
-
-    return payload
-
-
-@app.get("/respond")
-def get_respond(message: str, include_debug: bool = False) -> Dict[str, Any]:
-    logger.info("GET /respond include_debug=%s", include_debug)
-    faq_path = os.path.join(os.path.dirname(__file__), "faq.json")
-    logger.info("Loading FAQ file %s", faq_path)
-
+    start = time.perf_counter()
     res = respond(message, load_faq(faq_path))
+    duration_s = time.perf_counter() - start
+    INFERENCE_LATENCY.observe(duration_s)
+    INFERENCE_COUNT.labels(str(res.get("confidence") or "unknown")).inc()
 
     payload = {
         "id": res.get("id"),
@@ -154,6 +135,18 @@ def get_respond(message: str, include_debug: bool = False) -> Dict[str, Any]:
     )
 
     return payload
+
+
+@app.post("/respond")
+def post_respond(q: Query) -> Dict[str, Any]:
+    logger.info("POST /respond include_debug=%s", q.include_debug)
+    return _run_inference(q.message, q.include_debug)
+
+
+@app.get("/respond")
+def get_respond(message: str, include_debug: bool = False) -> Dict[str, Any]:
+    logger.info("GET /respond include_debug=%s", include_debug)
+    return _run_inference(message, include_debug)
 
 
 if __name__ == "__main__":
