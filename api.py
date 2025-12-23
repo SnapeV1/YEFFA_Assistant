@@ -1,10 +1,11 @@
 import logging
 import os
 import time
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, Response
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import Optional, Any, Dict
+from prometheus_client import Counter, Histogram, generate_latest, CONTENT_TYPE_LATEST
 
 # Logger setup
 logger = logging.getLogger("yeffa.api")
@@ -22,6 +23,18 @@ except Exception:
 
 app = FastAPI(title="YEFFA FAQ Matcher", version="1.0.0")
 
+REQUEST_COUNT = Counter(
+    "http_requests_total",
+    "Total HTTP requests",
+    ["method", "path", "status"],
+)
+REQUEST_LATENCY = Histogram(
+    "http_request_duration_seconds",
+    "HTTP request latency",
+    ["method", "path"],
+)
+
+
 @app.middleware("http")
 async def log_requests(request: Request, call_next):
     """Log every request to help debug host-to-VM connectivity issues."""
@@ -36,6 +49,9 @@ async def log_requests(request: Request, call_next):
     )
     response = await call_next(request)
     duration_ms = (time.perf_counter() - start) * 1000
+    path = request.url.path
+    REQUEST_COUNT.labels(request.method, path, str(response.status_code)).inc()
+    REQUEST_LATENCY.labels(request.method, path).observe(duration_ms / 1000.0)
     logger.info(
         "Completed %s %s status=%s duration=%.2fms",
         request.method,
@@ -71,6 +87,11 @@ class Query(BaseModel):
 @app.get("/health")
 def health() -> Dict[str, str]:
     return {"status": "ok"}
+
+
+@app.get("/metrics")
+def metrics() -> Response:
+    return Response(generate_latest(), media_type=CONTENT_TYPE_LATEST)
 
 
 @app.post("/respond")
